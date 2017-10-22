@@ -8,18 +8,17 @@ function password_matched(){
 		is_error_present = false;
 		document.getElementById("pwd_matched_or_not").innerHTML = "verified";
 		document.getElementById("pwd_matched_or_not").style.color="green";
+		document.getElementById("signup_btn").disabled = false;
 		console.log("matching");
-		cpwd.setCustomValidity("");
-		cpwd.setCustomValidity("Passwords Don't Match");
 	}
 	else  
 	{
 		is_error_present = true;
 		document.getElementById("pwd_matched_or_not").innerHTML = "&nbsp;!password does not match";
 		document.getElementById("pwd_matched_or_not").style.color = "red";
+		document.getElementById("signup_btn").disabled = true;
 		//document.getElementById("cpwd").select();
 		console.log("not matching");
-		cpwd.setCustomValidity("Passwords Don't Match");
 	}
 }
 
