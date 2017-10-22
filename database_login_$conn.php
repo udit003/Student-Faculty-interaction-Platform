@@ -9,6 +9,4 @@
 	{
     die("Connection failed: " . $conn->connect_error);
 	} 
-	$sql2="use STIP";
-	$conn->query($sql2);
 ?>
