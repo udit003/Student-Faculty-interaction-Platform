@@ -22,6 +22,8 @@
   $login_webmailError="";
   $login_passwordError="";
   include 'database_login_$conn.php';
+  $sql2="use STIP";
+  $conn->query($sql2);
   if(isset($_POST['signup']))
     include 'signup.php';
   if(isset($_POST['login']))

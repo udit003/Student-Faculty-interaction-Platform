@@ -2,15 +2,7 @@
 <?php
 	/* This file is used for creating the database , initializing all the tables 
 	    *****RUN ONLY WHEN DEPLOYING THE PROJECT FOR THE FIRST TIME IN YOUR SYSTEM******/
-	$servername="localhost";
-	$username="root";
-	$password="rangrezz";
-	$conn=new mysqli($servername,$username,$password);
-
-	if ($conn->connect_error) 
-	{
-    die("Connection failed: " . $conn->connect_error);
-	} 
+	include 'database_login_$conn.php';
 	$sql0="drop database if exists STIP";//this will delete any existing database,CAREFUL 
 	if ($conn->query($sql0) === TRUE) {
 	echo "Done";

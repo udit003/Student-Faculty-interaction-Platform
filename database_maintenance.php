@@ -1,13 +1,6 @@
 <?php
 	/* This is a system maintenance file, used for adding departments etc .*/ 
-	$servername="localhost";
-	$username="root";
-	$password="rangrezz";
-	$conn=new mysqli($servername,$username,$password);
-	if ($conn->connect_error) 
-	{
-    die("Connection failed: " . $conn->connect_error);
-	} 
+	include 'database_login_$conn.php';
 		$sql2="use STIP";
 
 	if ($conn->query($sql2) === TRUE) {
