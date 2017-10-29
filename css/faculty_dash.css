@@ -1,0 +1,16 @@
+.course-item > div > div {
+	border-right: 1px solid #ddd;
+}
+.course-item > div > div:last-child {
+	border-right: none;
+}
+.list-group > button:first-child {
+	background-color: #343a40
+}
+.c-name i {
+	position: absolute;
+	right: 10%;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 24px;
+}
