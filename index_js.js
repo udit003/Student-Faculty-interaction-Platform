@@ -29,7 +29,7 @@ function is_password_valid()
 	return false;
 }
 
-document.getElementById("cpwd").addEventListener("blur",password_matched,false);
+document.getElementById("cpwd").addEventListener("blur",password_matched,true);
 
 document.getElementById("pwd").addEventListener("blur",function(){
 	var cpwd = document.getElementById("cpwd");
@@ -53,17 +53,3 @@ document.getElementById("pwd").addEventListener("blur",function(){
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
-
-
-//document.getElementById("signup_btn").addEventListener("click",function(e){
-	//e.preventDefault();
-	/*if(is_error_present)
-	{
-		cpwd = document.getElementById("cpwd");
-		cpwd.setCustomValidity("Passwords Don't Match");
-  } else {
-    cpwd.setCustomValidity('');
-		//alert("error");
-	}*/
-//		document.getElementById("signup_form").submit();	
-//})
