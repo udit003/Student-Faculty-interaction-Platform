@@ -45,8 +45,8 @@
 					<div class="tab-content" id="v-pills-tabContent">
 						<div class="tab-pane fade show active" id="v-pills-join-course" role="tabpanel" aria-labelledby="v-pills-join-course">
 							<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-								<input class="form-control m-2 col-4" id="search-join-courses" type="search" placeholder="Search" aria-label="Search">
-								<a href="#create-new-course" class="btn btn-outline-primary">Create New Course</a>
+								<input class="form-control m-2 col-4" id="search-join-courses" type="search" placeholder="Search with Course ID or Name" aria-label="Search">
+								<a href="create_course.html" class="btn btn-outline-primary">Create New Course</a>
 							</nav>
 							<div class="list-group join-course-list">
 								<button href="#" class="list-group-item disabled pt-0 pb-0 text-light" disabled>
@@ -57,26 +57,10 @@
 									<div class="col-2 p-3">Ends on</div>
 								</div>
 								</button>
-								<a href="#" class="course-item list-group-item list-group-item-action pt-0 pb-0">
+								<a href="faculty_assignment.html?course=cspc23" class="course-item list-group-item list-group-item-action pt-0 pb-0">
 									<div class="row text-center">
 										<div class="col-2 p-3 c-id">CSPC23</div>
-										<div class="col-6 p-3 c-name"><i class="fa fa-check text-success"></i>Internetworking Protocols <span class="badge badge-pill badge-primary ml-2">2</span> </div>
-										<div class="col-2 p-3">28-10-2017</div>
-										<div class="col-2 p-3">28-12-2017</div>
-									</div>
-								</a>
-								<a href="#" class="course-item list-group-item list-group-item-action pt-0 pb-0">
-									<div class="row text-center">
-										<div class="col-2 p-3 c-id">CSPC24</div>
-										<div class="col-6 p-3 c-name">Computer Architecture</div>
-										<div class="col-2 p-3">28-10-2017</div>
-										<div class="col-2 p-3">28-12-2017</div>
-									</div>
-								</a>
-								<a href="#" class="course-item list-group-item list-group-item-action pt-0 pb-0">
-									<div class="row text-center">
-										<div class="col-2 p-3 c-id">CSPC25</div>
-										<div class="col-6 p-3 c-name">Database Systems</div>
+										<div class="col-6 p-3 c-name">Internetworking Protocols <span class="badge badge-pill badge-primary ml-2">2</span> </div>
 										<div class="col-2 p-3">28-10-2017</div>
 										<div class="col-2 p-3">28-12-2017</div>
 									</div>
@@ -85,7 +69,7 @@
 						</div>
 						<div class="tab-pane fade" id="v-pills-ongoing-courses" role="tabpanel" aria-labelledby="v-pills-ongoing-courses">
 							<nav class="navbar navbar-expand-lg navbar-light bg-light">
-								<input class="form-control m-2 col-4" id="search-ongoing-courses" type="search" placeholder="Search" aria-label="Search">
+								<input class="form-control m-2 col-4" id="search-ongoing-courses" type="search" placeholder="Search with Course ID or Name" aria-label="Search">
 							</nav>
 							<div class="list-group ongoing-course-list">
 								<button href="#" class="list-group-item disabled pt-0 pb-0 text-light" disabled>
@@ -96,26 +80,10 @@
 									<div class="col-2 p-3">Ends on</div>
 								</div>
 								</button>
-								<a href="#" class="course-item list-group-item list-group-item-action pt-0 pb-0">
-									<div class="row text-center">
-										<div class="col-2 p-3 c-id">CSPC23</div>
-										<div class="col-6 p-3 c-name">Internetworking Protocols <span class="badge badge-pill badge-primary ml-2">2</span> </div>
-										<div class="col-2 p-3">28-10-2017</div>
-										<div class="col-2 p-3">28-12-2017</div>
-									</div>
-								</a>
-								<a href="#" class="course-item list-group-item list-group-item-action pt-0 pb-0">
+								<a href="faculty_assignment.html?course=cspc24" class="course-item list-group-item list-group-item-action pt-0 pb-0">
 									<div class="row text-center">
 										<div class="col-2 p-3 c-id">CSPC24</div>
 										<div class="col-6 p-3 c-name">Computer Architecture</div>
-										<div class="col-2 p-3">28-10-2017</div>
-										<div class="col-2 p-3">28-12-2017</div>
-									</div>
-								</a>
-								<a href="#" class="course-item list-group-item list-group-item-action pt-0 pb-0">
-									<div class="row text-center">
-										<div class="col-2 p-3 c-id">CSPC25</div>
-										<div class="col-6 p-3 c-name">Database Systems</div>
 										<div class="col-2 p-3">28-10-2017</div>
 										<div class="col-2 p-3">28-12-2017</div>
 									</div>
@@ -124,7 +92,7 @@
 						</div>
 						<div class="tab-pane fade" id="v-pills-past-courses" role="tabpanel" aria-labelledby="v-pills-past-courses">
 							<nav class="navbar navbar-expand-lg navbar-light bg-light">
-								<input class="form-control m-2 col-4" id="search-past-courses" type="search" placeholder="Search" aria-label="Search">
+								<input class="form-control m-2 col-4" id="search-past-courses" type="search" placeholder="Search with Course ID or Name" aria-label="Search">
 							</nav>
 							<div class="list-group past-course-list">
 								<button href="#" class="list-group-item disabled pt-0 pb-0 text-light" disabled>
@@ -135,23 +103,7 @@
 									<div class="col-2 p-3">Ends on</div>
 								</div>
 								</button>
-								<a href="#" class="course-item list-group-item list-group-item-action pt-0 pb-0">
-									<div class="row text-center">
-										<div class="col-2 p-3 c-id">CSPC23</div>
-										<div class="col-6 p-3 c-name">Internetworking Protocols <span class="badge badge-pill badge-primary ml-2">2</span> </div>
-										<div class="col-2 p-3">28-10-2017</div>
-										<div class="col-2 p-3">28-12-2017</div>
-									</div>
-								</a>
-								<a href="#" class="course-item list-group-item list-group-item-action pt-0 pb-0">
-									<div class="row text-center">
-										<div class="col-2 p-3 c-id">CSPC24</div>
-										<div class="col-6 p-3 c-name">Computer Architecture</div>
-										<div class="col-2 p-3">28-10-2017</div>
-										<div class="col-2 p-3">28-12-2017</div>
-									</div>
-								</a>
-								<a href="#" class="course-item list-group-item list-group-item-action pt-0 pb-0">
+								<a href="faculty_assignment.html?course=cspc25" class="course-item list-group-item list-group-item-action pt-0 pb-0">
 									<div class="row text-center">
 										<div class="col-2 p-3 c-id">CSPC25</div>
 										<div class="col-6 p-3 c-name">Database Systems</div>
