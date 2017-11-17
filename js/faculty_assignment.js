@@ -1,4 +1,8 @@
 $(document).ready(function() {
+	$('[data-toggle="tooltip"]').tooltip();
+	$(".btn-edit-assign").on("click", function() {
+		window.location.href = "create_assignment.html?assignment=" + $(this).data().assignmentId;
+	});
 	var filterCourses = function(filterString, parentClass) {
 		$(parentClass).find('.assign-item').each(function() {
 			if($(this).find('.assign-title').text().toLowerCase().indexOf(filterString) >= 0)
