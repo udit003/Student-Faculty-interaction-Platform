@@ -1,19 +1,25 @@
-.assign-item > div > div {
-	border-right: 1px solid #ddd;
+#ongoing-assign-table_wrapper > .row:nth-child(1) > div:nth-child(1),
+#completed-assign-table_wrapper > .row:nth-child(1) > div:nth-child(1)
+{
+	order: 2;
 }
-.assign-item > div > div:last-child {
-	border-right: none;
+#ongoing-assign-table_wrapper > .row:nth-child(1) > div:nth-child(1),
+#completed-assign-table_wrapper > .row:nth-child(1) > div:nth-child(1)
+{
+	order: 1;
 }
-.list-group > button:first-child {
-	background-color: #343a40
+tr {
+	cursor: pointer;
 }
-.assign-title button {
-	font-size: 20px;
-	display: inline;
-	height: auto;
-	width: auto;
+tr:hover {
+	background-color: rgba(0, 0, 0, .1) !important;
+}
+td > button {
+	float: right;
+}
+#btn-create-assignment {
 	position: absolute;
-	left: 10px;
-	top: 50%;
-	transform: translateY(-50%);
+	left: 32px;
+	top: -3px;
+	z-index: 1;
 }

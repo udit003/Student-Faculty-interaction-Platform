@@ -11,32 +11,8 @@
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
 		<!-- Fontawesome Icons -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<style>
-			<style>
-				#ongoing-assign-table_wrapper > .row:nth-child(1) > div:nth-child(1),
-				#completed-assign-table_wrapper > .row:nth-child(1) > div:nth-child(1)
-				{
-					order: 2;
-				}
-				#ongoing-assign-table_wrapper > .row:nth-child(1) > div:nth-child(1),
-				#completed-assign-table_wrapper > .row:nth-child(1) > div:nth-child(1)
-				{
-					order: 1;
-				}
-				tr {
-					cursor: pointer;
-				}
-				tr:hover {
-					background-color: rgba(0, 0, 0, .1) !important;
-				}
-				#btn-create-assignment {
-					position: absolute;
-					left: 32px;
-					top: -3px;
-					z-index: 1;
-				}
-			</style>
-		</style>
+		
+		<link rel="stylesheet" href="css/faculty_assignment.css">
 	</head>
 	<body>
 		
@@ -83,13 +59,15 @@
 								<tbody>
 									<tr data-assignment-id="assign1">
 										<th scope="row">1</th>
-										<td>MIPS Programming</td>
+										<td>MIPS Programming <button class="btn btn-outline-primary">Edit <i class="fa fa-edit"></i></button>
+										</td>
 										<td>28-12-2017</td>
 										<td>28-12-2017</td>
 									</tr>
 									<tr data-assignment-id="assign2">
 										<th scope="row">2</th>
-										<td>Pipelining</td>
+										<td>Pipelining <button class="btn btn-outline-primary">Edit <i class="fa fa-edit"></i></button>
+										</td>
 										<td>28-12-2017</td>
 										<td>28-12-2017</td>
 									</tr>
@@ -135,16 +113,6 @@
 	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
-	<!-- <script src="js/faculty_assignment.js"></script> -->
-	<script>
-		$(document).ready(function() {
-			$('#ongoing-assign-table').DataTable();
-			$('#completed-assign-table').DataTable();
-
-			$("tr").on("click", function() {
-				window.location.href = "assignment_submissions.html?course=cspc&assignment=" + $(this).data().assignmentId;
-			});
-		});
-	</script>
+	<script src="js/faculty_assignment.js"></script>
 </body>
 </html>

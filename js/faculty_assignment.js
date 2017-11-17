@@ -1,23 +1,17 @@
 $(document).ready(function() {
-	$('[data-toggle="tooltip"]').tooltip();
-	$(".btn-edit-assign").on("click", function() {
-		window.location.href = "create_assignment.html?assignment=" + $(this).data().assignmentId;
-	});
-	var filterCourses = function(filterString, parentClass) {
-		$(parentClass).find('.assign-item').each(function() {
-			if($(this).find('.assign-title').text().toLowerCase().indexOf(filterString) >= 0)
-				$(this).show();
-			else
-				$(this).hide();
-		});
-	}
+	$('#ongoing-assign-table').DataTable();
+	$('#completed-assign-table').DataTable();
+	let course_id = "cspc";
 
-	$('#search-ongoing-assignments').on("keyup", function() {
-		let filterString = $(this).val();
-		filterCourses(filterString, ".ongoing-assign-list");
+	$("tr").on("click", function(e) {
+		let assignment_id = $(this).data().assignmentId;
+		switch(e.target.nodeName) {
+			case "BUTTON":
+				window.location.href = `update_assignment.html?course=${course_id}&assignment=${assignment_id}`;
+				break;
+			case "TD":
+				window.location.href = `assignment_submissions.html?course=${course_id}&assignment=${assignment_id}`;
+				break;
+		}
 	});
-	$('#search-completed-assignments').on("keyup", function() {
-		let filterString = $(this).val();
-		filterCourses(filterString, ".completed-assign-list");
-	});
-})
+});
