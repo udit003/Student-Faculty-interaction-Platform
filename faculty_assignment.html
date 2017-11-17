@@ -7,10 +7,36 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-		
-		<link rel="stylesheet" href="css/faculty_assignment.css">
+		<!-- DataTables -->
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
 		<!-- Fontawesome Icons -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+			<style>
+				#ongoing-assign-table_wrapper > .row:nth-child(1) > div:nth-child(1),
+				#completed-assign-table_wrapper > .row:nth-child(1) > div:nth-child(1)
+				{
+					order: 2;
+				}
+				#ongoing-assign-table_wrapper > .row:nth-child(1) > div:nth-child(1),
+				#completed-assign-table_wrapper > .row:nth-child(1) > div:nth-child(1)
+				{
+					order: 1;
+				}
+				tr {
+					cursor: pointer;
+				}
+				tr:hover {
+					background-color: rgba(0, 0, 0, .1) !important;
+				}
+				#btn-create-assignment {
+					position: absolute;
+					left: 32px;
+					top: -3px;
+					z-index: 1;
+				}
+			</style>
+		</style>
 	</head>
 	<body>
 		
@@ -44,73 +70,57 @@
 				<div class="col-10">
 					<div class="tab-content" id="v-pills-tabContent">
 						<div class="tab-pane fade show active" id="v-pills-ongoing-assign" role="tabpanel" aria-labelledby="v-pills-ongoing-assign">
-							<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-								<input class="form-control m-2 col-4" id="search-ongoing-assignments" type="search" placeholder="Search with Assignment Title" aria-label="Search">
-								<a href="create_assignment.html" class="btn btn-outline-primary">Create New Assignment</a>
-							</nav>
-							<div class="list-group ongoing-assign-list">
-								<button href="#" class="list-group-item disabled pt-0 pb-0 text-light" disabled>
-								<div class="row text-center">
-									<div class="col-6 p-3 assign-id">Assignment Title</div>
-									<div class="col-3 p-3">Start date</div>
-									<div class="col-3 p-3">End date</div>
-								</div>
-								</button>
-								<a href="#" class="assign-item list-group-item list-group-item-action pt-0 pb-0">
-									<div class="row text-center">
-										<div class="col-6 p-3 assign-title">
-											<button class="form-control form-inline btn-edit-assign" data-toggle="tooltip" data-placement="left" title="Edit Assignment" data-assignment-id="loremipsum"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-											Ongoing Assignment 1
-										</div>
-										<div class="col-3 p-3">28-10-2017</div>
-										<div class="col-3 p-3">28-12-2017</div>
-									</div>
-								</a>
-								<a href="#" class="assign-item list-group-item list-group-item-action pt-0 pb-0">
-									<div class="row text-center">
-										<div class="col-6 p-3 assign-title">
-											<button class="form-control form-inline btn-edit-assign" data-toggle="tooltip" data-placement="left" title="Edit Assignment" data-assignment-id="loremipsum"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-											Ongoing Assignment 2
-										</div>
-										<div class="col-3 p-3">28-10-2017</div>
-										<div class="col-3 p-3">28-12-2017</div>
-									</div>
-								</a>
-							</div>
+							<a href="create_assignment.html" id="btn-create-assignment" class="btn btn-outline-primary">CREATE NEW ASSIGNMENT</a>
+							<!-- Ongoing Assignment Table -->
+							<table id="ongoing-assign-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+								<caption>List of Ongoing Assignments</caption>
+								<thead class="thead-dark">
+									<th scope="col">#</th>
+									<th scope="col">Assignment Title</th>
+									<th scope="col">Start Date</th>
+									<th scope="col">End date</th>
+								</thead>
+								<tbody>
+									<tr data-assignment-id="assign1">
+										<th scope="row">1</th>
+										<td>MIPS Programming</td>
+										<td>28-12-2017</td>
+										<td>28-12-2017</td>
+									</tr>
+									<tr data-assignment-id="assign2">
+										<th scope="row">2</th>
+										<td>Pipelining</td>
+										<td>28-12-2017</td>
+										<td>28-12-2017</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 						<div class="tab-pane fade" id="v-pills-completed-assign" role="tabpanel" aria-labelledby="v-pills-completed-assign">
-							<nav class="navbar navbar-expand-lg navbar-light bg-light">
-								<input class="form-control m-2 col-4" id="search-completed-assignments" type="search" placeholder="Search with Assignment Title" aria-label="Search">
-							</nav>
-							<div class="list-group completed-assign-list">
-								<button href="#" class="list-group-item disabled pt-0 pb-0 text-light" disabled>
-								<div class="row text-center">
-									<div class="col-6 p-3 assign-id">Assignment Title</div>
-									<div class="col-3 p-3">Start date</div>
-									<div class="col-3 p-3">End date</div>
-								</div>
-								</button>
-								<a href="#" class="assign-item list-group-item list-group-item-action pt-0 pb-0">
-									<div class="row text-center">
-										<div class="col-6 p-3 assign-title">
-											<button class="form-control form-inline btn-edit-assign" data-toggle="tooltip" data-placement="left" title="Edit Assignment" data-assignment-id="loremipsum"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-											Past Assignment 1
-										</div>
-										<div class="col-3 p-3">28-10-2017</div>
-										<div class="col-3 p-3">28-12-2017</div>
-									</div>
-								</a>
-								<a href="#" class="assign-item list-group-item list-group-item-action pt-0 pb-0">
-									<div class="row text-center">
-										<div class="col-6 p-3 assign-title">
-											<button class="form-control form-inline btn-edit-assign" data-toggle="tooltip" data-placement="left" title="Edit Assignment" data-assignment-id="loremipsum"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-											Past Assignment 2
-										</div>
-										<div class="col-3 p-3">28-10-2017</div>
-										<div class="col-3 p-3">28-12-2017</div>
-									</div>
-								</a>
-							</div>
+							<!--  Assignment Table -->
+							<table id="completed-assign-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+								<caption>List of Completed Assignments</caption>
+								<thead class="thead-dark">
+									<th scope="col">#</th>
+									<th scope="col">Assignment Title</th>
+									<th scope="col">Start Date</th>
+									<th scope="col">End date</th>
+								</thead>
+								<tbody>
+									<tr data-assignment-id="assign1">
+										<th scope="row">1</th>
+										<td>Assignment 1</td>
+										<td>28-12-2017</td>
+										<td>28-12-2017</td>
+									</tr>
+									<tr data-assignment-id="assign2">
+										<th scope="row">2</th>
+										<td>Assignment 2</td>
+										<td>28-12-2017</td>
+										<td>28-12-2017</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>
@@ -121,6 +131,20 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-	<script src="js/faculty_assignment.js"></script>
+	<!-- DataTable -->
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+
+	<!-- <script src="js/faculty_assignment.js"></script> -->
+	<script>
+		$(document).ready(function() {
+			$('#ongoing-assign-table').DataTable();
+			$('#completed-assign-table').DataTable();
+
+			$("tr").on("click", function() {
+				window.location.href = "assignment_submissions.html?course=cspc&assignment=" + $(this).data().assignmentId;
+			});
+		});
+	</script>
 </body>
 </html>
