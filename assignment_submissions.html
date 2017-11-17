@@ -30,8 +30,7 @@
 		<!-- BREADCRUMBS -->
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_dash.html">COURSES</a></li>
-				<li class="breadcrumb-item active" aria-current="page">ASSIGNMENTS</li>
+				<li class="breadcrumb-item active" aria-current="page">COURSES</li>
 			</ol>
 		</nav>
 		<!-- TABS -->
@@ -39,62 +38,61 @@
 			<div class="row">
 				<div class="col-2">
 					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-						<a class="nav-link active" id="v-pills-ongoing-assign-tab" data-toggle="pill" href="#v-pills-ongoing-assign" role="tab" aria-controls="v-pills-ongoing-assign" aria-selected="true">ONGOING</a>
-						<a class="nav-link" id="v-pills-completed-assign-tab" data-toggle="pill" href="#v-pills-completed-assign" role="tab" aria-controls="v-pills-completed-assign" aria-selected="false">COMPLETED</a>
+						<a class="nav-link active" id="v-pills-not-graded-tab" data-toggle="pill" href="#v-pills-not-graded" role="tab" aria-controls="v-pills-not-graded" aria-selected="true">NOT GRADED</a>
+						<a class="nav-link" id="v-pills-graded-tab" data-toggle="pill" href="#v-pills-graded" role="tab" aria-controls="v-pills-graded" aria-selected="false">GRADED</a>
 					</div>
 				</div>
 				<div class="col-10">
 					<div class="tab-content" id="v-pills-tabContent">
-						<div class="tab-pane fade show active" id="v-pills-ongoing-assign" role="tabpanel" aria-labelledby="v-pills-ongoing-assign">
-							<a href="create_assignment.html" id="btn-create-assignment" class="btn btn-outline-primary">CREATE NEW ASSIGNMENT</a>
-							<!-- Ongoing Assignment Table -->
-							<table id="ongoing-assign-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
-								<caption>List of Ongoing Assignments</caption>
+						<div class="tab-pane fade show active" id="v-pills-not-graded" role="tabpanel" aria-labelledby="v-pills-not-graded">
+							<table id="not-graded-assign-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+								<caption>List of Non-graded Assignments</caption>
 								<thead class="thead-dark">
 									<th scope="col">#</th>
-									<th scope="col">Assignment Title</th>
-									<th scope="col">Start Date</th>
-									<th scope="col">End date</th>
+									<th scope="col">Student Roll Number</th>
+									<th scope="col">Submission Date</th>
 								</thead>
 								<tbody>
-									<tr data-assignment-id="assign1">
+									<tr data-student-id="stu1">
 										<th scope="row">1</th>
-										<td>MIPS Programming <button class="btn btn-outline-primary">Edit <i class="fa fa-edit"></i></button>
-										</td>
-										<td>28-12-2017</td>
+										<td>106115095</td>
 										<td>28-12-2017</td>
 									</tr>
-									<tr data-assignment-id="assign2">
+									<tr data-student-id="stu2">
 										<th scope="row">2</th>
-										<td>Pipelining <button class="btn btn-outline-primary">Edit <i class="fa fa-edit"></i></button>
-										</td>
+										<td>106115089</td>
 										<td>28-12-2017</td>
+									</tr>
+									<tr data-student-id="stu3">
+										<th scope="row">2</th>
+										<td>106115081</td>
 										<td>28-12-2017</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
-						<div class="tab-pane fade" id="v-pills-completed-assign" role="tabpanel" aria-labelledby="v-pills-completed-assign">
-							<!--  Assignment Table -->
-							<table id="completed-assign-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
-								<caption>List of Completed Assignments</caption>
+						<div class="tab-pane fade" id="v-pills-graded" role="tabpanel" aria-labelledby="v-pills-graded">
+							<table id="graded-assign-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+								<caption>List of Graded Assignments</caption>
 								<thead class="thead-dark">
 									<th scope="col">#</th>
-									<th scope="col">Assignment Title</th>
-									<th scope="col">Start Date</th>
-									<th scope="col">End date</th>
+									<th scope="col">Student Roll Number</th>
+									<th scope="col">Submission Date</th>
 								</thead>
 								<tbody>
-									<tr data-assignment-id="assign1">
+									<tr data-student-id="stu1">
 										<th scope="row">1</th>
-										<td>Assignment 1</td>
-										<td>28-12-2017</td>
+										<td>106115095</td>
 										<td>28-12-2017</td>
 									</tr>
-									<tr data-assignment-id="assign2">
+									<tr data-student-id="stu2">
 										<th scope="row">2</th>
-										<td>Assignment 2</td>
+										<td>106115089</td>
 										<td>28-12-2017</td>
+									</tr>
+									<tr data-student-id="stu3">
+										<th scope="row">2</th>
+										<td>106115081</td>
 										<td>28-12-2017</td>
 									</tr>
 								</tbody>
@@ -105,33 +103,19 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
 	<!-- DataTable -->
 	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
 	<script>
-		$(document).ready(function() {
-			$('#ongoing-assign-table').DataTable();
-			$('#completed-assign-table').DataTable();
-			let course_id = "cspc";
-
-			$("tr").on("click", function(e) {
-				let assignment_id = $(this).data().assignmentId;
-				switch(e.target.nodeName) {
-					case "BUTTON":
-						window.location.href = `update_assignment.html?course=${course_id}&assignment=${assignment_id}`;
-						break;
-					case "TD":
-						window.location.href = `assignment_submissions.html?course=${course_id}&assignment=${assignment_id}`;
-						break;
-				}
-			});
+		$("document").ready(function() {
+			$('#not-graded-assign-table').DataTable();
+			$('#graded-assign-table').DataTable();
 		});
 	</script>
 </body>

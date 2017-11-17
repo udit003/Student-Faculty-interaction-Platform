@@ -1,0 +1,37 @@
+#join-course-table_wrapper 			> .row:nth-child(1) > div:nth-child(1),
+#ongoing-course-table_wrapper 		> .row:nth-child(1) > div:nth-child(1),
+#past-course-table_wrapper 			> .row:nth-child(1) > div:nth-child(1),
+#ongoing-assign-table_wrapper 		> .row:nth-child(1) > div:nth-child(1),
+#completed-assign-table_wrapper 	> .row:nth-child(1) > div:nth-child(1),
+#not-graded-assign-table_wrapper 	> .row:nth-child(1) > div:nth-child(1),
+#graded-assign-table_wrapper 		> .row:nth-child(1) > div:nth-child(1)
+{
+	order: 2;
+}
+#join-course-table_wrapper 			> .row:nth-child(1) > div:nth-child(1),
+#ongoing-course-table_wrapper 		> .row:nth-child(1) > div:nth-child(1),
+#past-course-table_wrapper 			> .row:nth-child(1) > div:nth-child(1),
+#ongoing-assign-table_wrapper 		> .row:nth-child(1) > div:nth-child(1),
+#completed-assign-table_wrapper 	> .row:nth-child(1) > div:nth-child(1),
+#not-graded-assign-table_wrapper 	> .row:nth-child(1) > div:nth-child(1),
+#graded-assign-table_wrapper		> .row:nth-child(1) > div:nth-child(1)
+{
+	order: 1;
+}
+tr {
+	cursor: pointer;
+}
+tr:hover {
+	background-color: rgba(0, 0, 0, .1) !important;
+}
+td > button {
+	float: right;
+}
+#btn-create-assignment,
+#btn-create-course 
+{
+	position: absolute;
+	left: 32px;
+	top: -3px;
+	z-index: 1;
+}
