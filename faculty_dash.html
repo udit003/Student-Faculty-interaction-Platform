@@ -24,6 +24,12 @@
 			{
 				order: 1;
 			}
+			tr {
+				cursor: pointer;
+			}
+			tr:hover {
+				background-color: rgba(0, 0, 0, .1) !important;
+			}
 		</style>
 	</head>
 	<body>
@@ -69,21 +75,21 @@
 									<th scope="col">Ended on</th>
 								</thead>
 								<tbody>
-									<tr>
+									<tr data-course-id="CSPC23">
 										<th scope="row">1</th>
 										<td>CSPC23</td>
 										<td>Internetworking Protocols <span class="badge badge-pill badge-primary ml-2">2</span></td>
 										<td>28-10-2017</td>
 										<td>28-12-2017</td>
 									</tr>
-									<tr>
+									<tr data-course-id="CSPC24">
 										<th scope="row">2</th>
 										<td>CSPC24</td>
 										<td>Database Management System <span class="badge badge-pill badge-primary ml-2">2</span></td>
 										<td>28-10-2017</td>
 										<td>28-12-2017</td>
 									</tr>
-									<tr>
+									<tr data-course-id="CSPC25">
 										<th scope="row">3</th>
 										<td>CSPC25</td>
 										<td>Computer Architecture <span class="badge badge-pill badge-primary ml-2">2</span></td>
@@ -105,21 +111,21 @@
 									<th scope="col">Ended on</th>
 								</thead>
 								<tbody>
-									<tr>
+									<tr data-course-id="CSPC23">
 										<th scope="row">1</th>
 										<td>CSPC23</td>
 										<td>Internetworking Protocols <span class="badge badge-pill badge-primary ml-2">2</span></td>
 										<td>28-10-2017</td>
 										<td>28-12-2017</td>
 									</tr>
-									<tr>
+									<tr data-course-id="CSPC24">
 										<th scope="row">2</th>
 										<td>CSPC24</td>
 										<td>Database Management System <span class="badge badge-pill badge-primary ml-2">2</span></td>
 										<td>28-10-2017</td>
 										<td>28-12-2017</td>
 									</tr>
-									<tr>
+									<tr data-course-id="CSPC25">
 										<th scope="row">3</th>
 										<td>CSPC25</td>
 										<td>Computer Architecture <span class="badge badge-pill badge-primary ml-2">2</span></td>
@@ -141,21 +147,21 @@
 									<th scope="col">Ended on</th>
 								</thead>
 								<tbody>
-									<tr>
+									<tr data-course-id="CSPC23">
 										<th scope="row">1</th>
 										<td>CSPC23</td>
 										<td>Internetworking Protocols <span class="badge badge-pill badge-primary ml-2">2</span></td>
 										<td>28-10-2017</td>
 										<td>28-12-2017</td>
 									</tr>
-									<tr>
+									<tr data-course-id="CSPC24">
 										<th scope="row">2</th>
 										<td>CSPC24</td>
 										<td>Database Management System <span class="badge badge-pill badge-primary ml-2">2</span></td>
 										<td>28-10-2017</td>
 										<td>28-12-2017</td>
 									</tr>
-									<tr>
+									<tr data-course-id="CSPC25">
 										<th scope="row">3</th>
 										<td>CSPC25</td>
 										<td>Computer Architecture <span class="badge badge-pill badge-primary ml-2">2</span></td>
@@ -184,6 +190,10 @@
 			$('#join-course-table').DataTable();
 			$('#ongoing-course-table').DataTable();
 			$('#past-course-table').DataTable();
+
+			$("tr").on("click", function() {
+				window.location.href = "faculty_assignment.html?course=" + $(this).data().courseId;
+			});
 		});
 	</script>
 </body>
