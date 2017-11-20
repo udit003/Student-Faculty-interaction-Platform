@@ -41,8 +41,8 @@
 		<!-- BREADCRUMBS -->
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_dash.html">COURSES</a></li>
-				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_assignment.html">ASSIGNMENTS</a></li>
+				<li class="breadcrumb-item active" aria-current="page"><a href="student_dash.html">COURSES</a></li>
+				<li class="breadcrumb-item active" aria-current="page"><a href="student_assignment.html?course=backend-courseId">ASSIGNMENTS</a></li>
 				<li class="breadcrumb-item active" aria-current="page">SUBMISSION</li>
 			</ol>
 		</nav>
@@ -88,8 +88,8 @@
 						url: "#",
 						method: "POST",
 						data: {
-							courseId: "cspc",
-							assignId: "assign1",
+							courseId: "backend-courseId",
+							assignId: "backend-assignId",
 							answer: $("#summernote").summernote("code")
 						},
 						beforeSend: function() {
