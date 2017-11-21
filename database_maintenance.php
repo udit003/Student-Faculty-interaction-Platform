@@ -1,12 +1,12 @@
 <?php
 	/* This is a system maintenance file, used for adding departments etc .*/ 
-	include 'database_login_$conn.php';
-		$sql2="use STIP";
+	include 'config.php';
+	$sql2="use STIP";
 
 	if ($conn->query($sql2) === TRUE) {
-	echo "successfull\n";
+	echo "successfully <br>";
 	} else {
-		echo "Unsuccessfull" . $conn->error;
+		echo "Unsuccessfully " . $conn->error;
 	}	
 
 
@@ -30,8 +30,8 @@
 			('DEE'),
 			('Humanities');";
 
-		if ($conn->query($sql1) === TRUE) {
-	echo "new departments added successfully\n";
+	if ($conn->query($sql1) === TRUE) {
+		echo "new departments added successfully\n";
 	} else {
 		echo "Error inserting into table: " . $conn->error;
 	}
