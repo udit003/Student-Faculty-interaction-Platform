@@ -158,7 +158,31 @@
 			</div>
 		</div>
 	</div>
-	
+	<div class="modal fade bd-example-modal-lg" id="confirm-join-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header justify-content-center">
+					<h5>Request to join <span class="confirm-join-text"></span></h5>
+				</div>
+				<div class="modal-footer justify-content-center">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+					<button type="button" id="confirm-join" class="btn btn-primary">Proceed</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade bd-example-modal-lg" id="confirm-join-response-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header justify-content-center">
+					<h5>Successfully sent request to join <span class="confirm-join-text"></span></h5>
+				</div>
+				<div class="modal-footer justify-content-center">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	
 	<!-- Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -179,10 +203,9 @@
 				joinCourseId = $(this).data().courseId;
 				if(courseName) {
 					courseName = courseName.substring(0, courseName.indexOf("<span"));
-						$(".confirm-join-text").html(courseName);
-						$('#confirm-join-modal').modal("show");
-					}
-				});
+					$(".confirm-join-text").html(courseName);
+					$('#confirm-join-modal').modal("show");
+				}
 			});
 			$("#confirm-join").click(function() {
 				$('#confirm-join-modal').modal("hide");
@@ -191,6 +214,7 @@
 			$(document).on("click", "#ongoing-course-table tr, #past-course-table tr", function() {
 				window.location.href = `student_assignment.php?course=${$(this).data().courseId}`;
 			});
+		});
 		</script>
 	</body>
 </html>

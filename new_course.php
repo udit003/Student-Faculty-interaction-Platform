@@ -66,7 +66,7 @@ if (!$error_present)
        
         if($result)
          {
-            header("Location: faculty_dash.html");
+            header("Location: faculty_dash.php");
             die();
          }
     }

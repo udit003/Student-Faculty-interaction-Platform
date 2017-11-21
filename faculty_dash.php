@@ -172,6 +172,31 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal fade bd-example-modal-lg" id="confirm-join-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header justify-content-center">
+					<h5>Request to join <span class="confirm-join-text"></span></h5>
+				</div>
+				<div class="modal-footer justify-content-center">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+					<button type="button" id="confirm-join" class="btn btn-primary">Proceed</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade bd-example-modal-lg" id="confirm-join-response-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header justify-content-center">
+					<h5>Successfully sent request to join <span class="confirm-join-text"></span></h5>
+				</div>
+				<div class="modal-footer justify-content-center">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	
 	<!-- Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -186,46 +211,52 @@
 			$('#join-course-table').DataTable();
 			$('#ongoing-course-table').DataTable();
 			$('#past-course-table').DataTable();
-			let leave_course = "";
+			let courseId = "";
+			let courseName = "";
 
-			$(document).on("click", "#ongoing-course-table tr, #past-course-table tr", function() {
-				window.location.href = `student_assignment.php?course=${$(this).data().courseId}`;
+			$("#past-course-table tr").on("click", function() {
+				courseId = $(this).data().courseId;
+				window.location.href = `faculty_assignment.php?course=${courseId}`;
 			});
 
-			$("#join-course-table tr").on("click", function(e) {
-				let course_id = $(this).data().courseId;
-				let course_name = $(this).find("td:eq(1)").html();
-				if(course_name) {
-					course_name = course_name.substring(0, course_name.indexOf("<span"));
-					leave_course = course_name;
-					$(".confirm-join-text").html(course_name);
+			$("#join-course-table tr").on("click", function() {
+				courseName = $(this).find("td:eq(1)").html();
+				courseId = $(this).data().courseId;
+				if(courseName) {
+					courseName = courseName.substring(0, courseName.indexOf("<span"));
+					$(".confirm-join-text").html(courseName);
 					$('#confirm-join-modal').modal("show");
 				}
+			});
+			$("#confirm-join").click(function() {
+				$('#confirm-join-modal').modal("hide");
+				$("#confirm-join-response-modal").modal("show");
+			});
+
+			$("#ongoing-course-table tr").on("click", function(e) {
 				switch(e.target.nodeName) {
 					case "BUTTON":
-						$(".confirm-leave-text").text(course_name);
+						$(".confirm-leave-text").text(courseName);
 						$('#confirm-leave-modal').modal("show");
 						break;
 					case "TD":
-						window.location.href = `faculty_assignment.php?course=${course_id}`;
+						window.location.href = `faculty_assignment.php?course=${courseId}`;
 						break;
 				}
 			});
 			$("#confirm-leave").click(function() {
-				if(leave_course) {
-					$('#confirm-leave-modal').modal("hide");
-					console.log(leave_course);
-					$.ajax({
-						url: "#",
-						method: "POST",
-						data: {
-							courseId: leave_course
-						},
-						success: function() {
-							location.reload();
-						}
-					});
-				}
+				$('#confirm-leave-modal').modal("hide");
+				$.ajax({
+					url: "#",
+					method: "POST",
+					data: {
+						courseId: courseId,
+						courseName: courseName
+					},
+					success: function() {
+						location.reload();
+					}
+				});
 			});
 		});
 	</script>
