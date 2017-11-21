@@ -41,8 +41,8 @@
 		<!-- BREADCRUMBS -->
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item active" aria-current="page"><a href="student_dash.html">COURSES</a></li>
-				<li class="breadcrumb-item active" aria-current="page"><a href="student_assignment.html?course=backend-courseId">ASSIGNMENTS</a></li>
+				<li class="breadcrumb-item active" aria-current="page"><a href="student_dash.php">COURSES</a></li>
+				<li class="breadcrumb-item active" aria-current="page"><a href="student_assignment.php?course=backend-courseId">ASSIGNMENTS</a></li>
 				<li class="breadcrumb-item active" aria-current="page">SUBMISSION</li>
 			</ol>
 		</nav>

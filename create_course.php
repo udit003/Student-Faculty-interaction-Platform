@@ -27,7 +27,7 @@
 		<!-- BREADCRUMBS -->
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_dash.html">COURSES</a></li>
+				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_dash.php">COURSES</a></li>
 				<li class="breadcrumb-item active" aria-current="page">CREATE COURSE</li>
 			</ol>
 		</nav>

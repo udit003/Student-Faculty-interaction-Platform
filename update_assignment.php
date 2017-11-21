@@ -27,8 +27,8 @@
 		<!-- BREADCRUMBS -->
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_dash.html">COURSES</a></li>
-				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_assignment.html?course=backend-course">ASSIGNMENTS</a></li>
+				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_dash.php">COURSES</a></li>
+				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_assignment.php?course=backend-course">ASSIGNMENTS</a></li>
 				<li class="breadcrumb-item active" aria-current="page">UPDATE ASSIGNMENT</li>
 			</ol>
 		</nav>
