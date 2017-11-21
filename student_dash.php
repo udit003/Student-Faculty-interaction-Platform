@@ -1,3 +1,6 @@
+<?php
+	include 'check_student.php'
+?>
 <!doctype html>
 <html lang="en">
 	<head>
