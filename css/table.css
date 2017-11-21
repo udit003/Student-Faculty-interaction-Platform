@@ -4,7 +4,8 @@
 #ongoing-assign-table_wrapper 		> .row:nth-child(1) > div:nth-child(1),
 #completed-assign-table_wrapper 	> .row:nth-child(1) > div:nth-child(1),
 #not-graded-assign-table_wrapper 	> .row:nth-child(1) > div:nth-child(1),
-#graded-assign-table_wrapper 		> .row:nth-child(1) > div:nth-child(1)
+#graded-assign-table_wrapper 		> .row:nth-child(1) > div:nth-child(1),
+#pending-approvals-table_wrapper	> .row:nth-child(1) > div:nth-child(1)
 {
 	order: 2;
 }
@@ -14,12 +15,16 @@
 #ongoing-assign-table_wrapper 		> .row:nth-child(1) > div:nth-child(1),
 #completed-assign-table_wrapper 	> .row:nth-child(1) > div:nth-child(1),
 #not-graded-assign-table_wrapper 	> .row:nth-child(1) > div:nth-child(1),
-#graded-assign-table_wrapper		> .row:nth-child(1) > div:nth-child(1)
+#graded-assign-table_wrapper		> .row:nth-child(1) > div:nth-child(1),
+#pending-approvals-table_wrapper	> .row:nth-child(1) > div:nth-child(1)
 {
 	order: 1;
 }
 tr {
 	cursor: pointer;
+}
+#pending-approvals-table tr {
+	cursor: inherit;
 }
 tr:hover {
 	background-color: rgba(0, 0, 0, .1) !important;

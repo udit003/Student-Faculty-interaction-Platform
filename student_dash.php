@@ -44,6 +44,7 @@
 						<a class="nav-link active" id="v-pills-ongoing-courses-tab" data-toggle="pill" href="#v-pills-ongoing-courses" role="tab" aria-controls="v-pills-ongoing-courses" aria-selected="true">ONGOING COURSES</a>
 						<a class="nav-link" id="v-pills-join-course-tab" data-toggle="pill" href="#v-pills-join-course" role="tab" aria-controls="v-pills-join-course" aria-selected="false">JOIN COURSE</a>
 						<a class="nav-link" id="v-pills-past-courses-tab" data-toggle="pill" href="#v-pills-past-courses" role="tab" aria-controls="v-pills-past-courses" aria-selected="false">PAST COURSES</a>
+						<a class="nav-link" id="v-pills-pending-approvals-tab" data-toggle="pill" href="#v-pills-pending-approvals" role="tab" aria-controls="v-pills-pending-approvals" aria-selected="false">PENDING APPROVALS</a>
 					</div>
 				</div>
 				<div class="col-10">
@@ -156,6 +157,35 @@
 								</tbody>
 							</table>
 						</div>
+						<div class="tab-pane fade" id="v-pills-pending-approvals" role="tabpanel" aria-labelledby="v-pills-pending-approvals">
+							<!-- Past Courses Table -->
+							<table id="pending-approvals-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+								<caption>List of Pending Status</caption>
+								<thead class="thead-dark">
+									<th scope="col">#</th>
+									<th scope="col">Course ID</th>
+									<th scope="col">Course Name</th>
+									<th scope="col">Date of Application</th>
+									<th scope="col">Status</th>
+								</thead>
+								<tbody>
+									<tr data-course-id="CSPC23">
+										<th scope="row">1</th>
+										<td>CSPC23</td>
+										<td>Internetworking Protocols</td>
+										<td>28-10-2017</td>
+										<td>Rejected, Apply again</td>
+									</tr>
+									<tr data-course-id="CSPC24">
+										<th scope="row">2</th>
+										<td>CSPC24</td>
+										<td>Database Management System</td>
+										<td>28-10-2017</td>
+										<td>Pending</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -200,6 +230,8 @@
 			$('#join-course-table').DataTable();
 			$('#ongoing-course-table').DataTable();
 			$('#past-course-table').DataTable();
+			$('#pending-approvals-table').DataTable();
+
 			let joinCourseId = "";
 			$("#join-course-table tr").on("click", function() {
 				let courseName = $(this).find("td:eq(1)").html();
