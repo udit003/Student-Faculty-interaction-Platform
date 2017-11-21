@@ -21,7 +21,7 @@
   $signup_departmentError="";
   $login_webmailError="";
   $login_passwordError="";
-  include 'database_login_$conn.php';
+  include 'config.php';
   $sql2="use STIP";
   $conn->query($sql2);
   if(isset($_POST['signup']))
