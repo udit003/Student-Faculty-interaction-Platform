@@ -60,14 +60,20 @@ if (!$error_present)
       $course_status="open";
       $dept=$_SESSION['department_id'];
   		 $sql="insert into courses values('$course_id','$course_name','$course_status','$dept')";
-       echo $sql;
-       $result=$conn->query($sql);
-
        
+       $result=$conn->query($sql);
         if($result)
          {
-            header("Location: faculty_dash.php");
-            die();
+            $user_id=$_SESSION['user_id'];
+            $sql="insert into user_courses values('$course_id','$user_id','approved',curdate(),NULL)";
+            $result=$conn->query($sql);
+            if($result)
+            {
+              header("Location: faculty_dash.php");
+              die();
+            }
+            else 
+              echo $conn->error;
          }
     }
     
