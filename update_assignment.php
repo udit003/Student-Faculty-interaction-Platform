@@ -31,7 +31,7 @@
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_dash.php">COURSES</a></li>
-				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_assignment.php?course=backend-course">ASSIGNMENTS</a></li>
+				<li class="breadcrumb-item active" aria-current="page"><a href="#">ASSIGNMENTS</a></li>
 				<li class="breadcrumb-item active" aria-current="page">UPDATE ASSIGNMENT</li>
 			</ol>
 		</nav>
@@ -77,5 +77,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 	
 	<script src="js/create_assignment.js"></script>
+	<script src="js/util.js"></script>
+	<script>
+		$("document").ready(function() {
+			let courseId = getParameterByName('course');
+			$(".breadcrumb-item:eq(1) a").attr("href", `faculty_assignment.php?course=${courseId}`);
+		});
+	</script>
 </body>
 </html>

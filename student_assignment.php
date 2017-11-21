@@ -116,16 +116,16 @@
 	<!-- DataTable -->
 	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-
+	<script src="js/util.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('#ongoing-assign-table').DataTable();
 			$('#completed-assign-table').DataTable();
-			let course_id = "backend-courseId";
+			let course_id = getParameterByName('course');
 
 			$("tr").on("click", function(e) {
 				let assignment_id = $(this).data().assignmentId;
-				window.location.href = `answer.php?course=${course_id}&assign=${assignment_id}`;
+				window.location.href = `answer.php?course=${course_id}&assignment=${assignment_id}`;
 			});
 		});
 	</script>

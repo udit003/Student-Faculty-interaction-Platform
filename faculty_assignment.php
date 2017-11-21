@@ -49,7 +49,7 @@
 				<div class="col-10">
 					<div class="tab-content" id="v-pills-tabContent">
 						<div class="tab-pane fade show active" id="v-pills-ongoing-assign" role="tabpanel" aria-labelledby="v-pills-ongoing-assign">
-							<a href="create_assignment.php" id="btn-create-assignment" class="btn btn-outline-primary">CREATE NEW ASSIGNMENT</a>
+							<a href="#" id="btn-create-assignment" class="btn btn-outline-primary">CREATE NEW ASSIGNMENT</a>
 							<!-- Ongoing Assignment Table -->
 							<table id="ongoing-assign-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
 								<caption>List of Ongoing Assignments</caption>
@@ -117,12 +117,14 @@
 	<!-- DataTable -->
 	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+	<script src="js/util.js"></script>
 
 	<script>
 		$(document).ready(function() {
 			$('#ongoing-assign-table').DataTable();
 			$('#completed-assign-table').DataTable();
-			let course_id = "cspc";
+			let course_id = getParameterByName('course');
+			$("#btn-create-assignment").attr("href", `create_assignment.php?course=${course_id}`);
 
 			$("tr").on("click", function(e) {
 				let assignment_id = $(this).data().assignmentId;

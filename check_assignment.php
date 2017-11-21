@@ -32,8 +32,8 @@
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item" aria-current="page"><a href="faculty_dash.php">COURSES</a></li>
-				<li class="breadcrumb-item" aria-current="page"><a href="faculty_assignment.php?course=backend-course">ASSIGNMENTS</a></li>
-				<li class="breadcrumb-item" aria-current="page"><a href="assignment_submissions.php?course=backend-course&assignment=backend-assignment">SUBMISSIONS</a></li>
+				<li class="breadcrumb-item" aria-current="page"><a href="#">ASSIGNMENTS</a></li>
+				<li class="breadcrumb-item" aria-current="page"><a href="#">SUBMISSIONS</a></li>
 				<li class="breadcrumb-item active" aria-current="page">GRADE ASSIGNMENT</li>
 			</ol>
 		</nav>
@@ -91,8 +91,16 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 	<!-- Boostrap Slider -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
+	<script src="js/util.js"></script>
 	<script>
 		$(document).ready(function() {
+			let courseId = getParameterByName('course');
+			let assignId = getParameterByName('assignment');
+			let studentId = getParameterByName('student');
+			
+			$(".breadcrumb-item:eq(1) a").attr("href", `faculty_assignment.php?course=${courseId}`);
+			$(".breadcrumb-item:eq(2) a").attr("href", `assignment_submissions.php?course=${courseId}&assignment=${assignId}`);
+
 			$("input[type='radio']").click(function() {
 				let radioValue = $("input[name='mark-system']:checked").val();
 				switch(radioValue) {

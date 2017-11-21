@@ -261,6 +261,8 @@
 				$("#confirm-join-response-modal").modal("show");
 			});
 			$("#ongoing-course-table tr").on("click", function(e) {
+				courseId = $(this).data().courseId;
+				courseName = $(this).find("td:eq(1)").html();
 				switch(e.target.nodeName) {
 					case "BUTTON":
 						$(".confirm-leave-text").text(courseName);
