@@ -31,8 +31,9 @@
 		<!-- BREADCRUMBS -->
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_dash.php">COURSES</a></li>
-				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_assignment.php?course=backend-course">ASSIGNMENTS</a></li>
+				<li class="breadcrumb-item" aria-current="page"><a href="faculty_dash.php">COURSES</a></li>
+				<li class="breadcrumb-item" aria-current="page"><a href="faculty_assignment.php?course=backend-course">ASSIGNMENTS</a></li>
+				<li class="breadcrumb-item" aria-current="page"><a href="assignment_submissions.php?course=backend-course&assignment=backend-assignment">SUBMISSIONS</a></li>
 				<li class="breadcrumb-item active" aria-current="page">GRADE ASSIGNMENT</li>
 			</ol>
 		</nav>
