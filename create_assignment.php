@@ -1,5 +1,22 @@
 <?php
-	include 'check_faculty.php'
+	include 'check_faculty.php';
+	$title_error ='';
+	$ques_error = '';
+	$start_time_error = '';
+	$end_time_error = '';
+	$assign_title='';
+	$assign_ques='';
+	$start_date='';
+	$end_date='';
+	$start_time='';
+	$end_time='';
+
+	if (isset($_POST['create_assign'])) {
+		include 'new_assign.php';
+	}
+	else
+		$_SESSION['create_assign_course']=$_GET['course'];
+	
 ?>
 <!doctype html>
 <html lang="en">
@@ -35,38 +52,53 @@
 				<li class="breadcrumb-item active" aria-current="page">CREATE ASSIGNMENT</li>
 			</ol>
 		</nav>
-		<div class="container w-50 text-center">
+		<div class="container w-50 text-center" >
 			<h4 class="p-3">CREATE NEW ASSIGNMENT</h4>
-			<form class="border border-muted p-5 text-left">
+			<form class="border border-muted p-5 text-left" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 				<div class="form-group">
 					<label for="assign-title">Assignment Title</label>
-					<input type="text" class="form-control" id="assign-title" name="assign-title" placeholder="Enter Assignment Title" required autofocus>
+					<input type="text" class="form-control <?php if(!empty($title_error)) echo 'is-invalid'?>" id="assign-title" value = "<?php echo $assign_title ?>" name="assign-title" placeholder="Enter Assignment Title" required autofocus>
+					 
 					<div class="invalid-feedback">
-						Please provide a valid Assignment title.
+						<?php echo $title_error; ?> 
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="assign-question">Assignment Question</label>
-					<textarea class="form-control" name="assign-question" id="assign-question" cols="30" rows="5" placeholder="Assignment Question" required></textarea>
+					<textarea class="form-control <?php if(!empty($ques_error)) echo 'is-invalid'?>" name="assign-ques" value = "<?php echo $assign_question ?>" id="assign-question" cols="30" rows="5" placeholder="Assignment Question" required></textarea>
 					<div class="invalid-feedback">
-						Please provide a valid Assignment Question.
+						<?php echo $ques_error; ?> 
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="assign-start-date">Assignment Start date</label>
-					<input type="date" class="form-control" id="assign-start-date" required>
+					<input type="date" class="form-control <?php if(!empty($start_date_error)) echo 'is-invalid'?>" id="assign-start-date" name="start-date" required>
 					<div class="invalid-feedback">
-						Please select the assignment start date.
+						<?php echo $start_date_error; ?> 
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="assign-end-date">Assignment Deadline</label>
-					<input type="date" class="form-control" id="assign-end-date" required>
+					<label for="assign-start-time">Assignment Start time</label>
+					<input type="time" class="form-control <?php if(!empty($start_time_error)) echo 'is-invalid'?>" id="assign-start-time" name="start-time" value="00:00" required>
 					<div class="invalid-feedback">
-						Please select the assignment deadline.
+						<?php echo $start_time_error; ?> 
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<div class="form-group">
+					<label for="assign-end-date">Assignment End date</label>
+					<input type="date" class="form-control <?php if(!empty($end_date_error)) echo 'is-invalid'?>" name="end-date" id="assign-end-date" required>
+					<div class="invalid-feedback">
+						<?php echo $end_date_error; ?> 
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="assign-end-time">Assignment End time</label>
+					<input type="time" class="form-control <?php if(!empty($end_time_error)) echo 'is-invalid'?>" id="assign-end-time" name="end-time" value="00:00" required>
+					<div class="invalid-feedback">
+						<?php echo $end_time_error; ?> 
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary" name="create_assign">Submit</button>
 			</form>
 		</div>
 	</div>

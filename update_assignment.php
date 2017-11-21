@@ -1,5 +1,36 @@
 <?php
-	include 'check_faculty.php'
+	include 'check_faculty.php';
+	$title_error ='';
+	$ques_error = '';
+	$start_time_error = '';
+	$end_time_error = '';
+	$assign_title='';
+	$assign_ques='';
+	$start_date='';
+	$end_date='';
+	$start_time='';
+	$end_time='';
+	$title='';
+	$ques='';
+	
+	
+	
+
+	if (isset($_POST['create_assign'])) {
+		include 'new_assign_update.php';
+	}
+	else
+	{
+		include 'config.php';
+		$id=$_SESSION['update_assign_id']=$_GET['assignment'];
+		$_SESSION['update_assign_course']=$_GET['course'];
+		$sql="select * from assignments where assignment_id='$id'";
+		$result=$conn->query($sql);
+		$row=$result->fetch_assoc();
+		$ques=$row['assignment_ques'];
+		$title=$row['title'];
+	}
+	
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,50 +63,63 @@
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_dash.php">COURSES</a></li>
 				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_assignment.php?course=backend-course">ASSIGNMENTS</a></li>
-				<li class="breadcrumb-item active" aria-current="page">UPDATE ASSIGNMENT</li>
+				<li class="breadcrumb-item active" aria-current="page">CREATE ASSIGNMENT</li>
 			</ol>
 		</nav>
-		<div class="container w-50 text-center">
+		<div class="container w-50 text-center" >
 			<h4 class="p-3">UPDATE ASSIGNMENT</h4>
-			<form class="border border-muted p-5 text-left">
+			<form class="border border-muted p-5 text-left" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 				<div class="form-group">
 					<label for="assign-title">Assignment Title</label>
-					<input type="text" class="form-control" id="assign-title" name="assign-title" placeholder="Enter Assignment Title" required autofocus>
+					<input type="text" class="form-control <?php if(!empty($title_error)) echo 'is-invalid'?>" id="assign-title" value = "<?php echo $title ?>" name="assign-title" placeholder="Enter Assignment Title" required autofocus>
+					 
 					<div class="invalid-feedback">
-						Please provide a valid Assignment title.
+						<?php echo $title_error; ?> 
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="assign-question">Assignment Question</label>
-					<textarea class="form-control" name="assign-question" id="assign-question" cols="30" rows="5" placeholder="Assignment Question" required></textarea>
+					<textarea class="form-control <?php if(!empty($ques_error)) echo 'is-invalid'?>" name="assign-ques" id="assign-question" cols="30" rows="5" placeholder="Assignment Question" required><?php echo $ques ?></textarea>
 					<div class="invalid-feedback">
-						Please provide a valid Assignment Question.
+						<?php echo $ques_error; ?> 
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="assign-start-date">Assignment Start date</label>
-					<input type="date" class="form-control" id="assign-start-date" required>
+					<input type="date" class="form-control <?php if(!empty($start_date_error)) echo 'is-invalid'?>" id="assign-start-date" name="start-date" required>
 					<div class="invalid-feedback">
-						Please select the assignment start date.
+						<?php echo $start_date_error; ?> 
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="assign-end-date">Assignment Deadline</label>
-					<input type="date" class="form-control" id="assign-end-date" required>
+					<label for="assign-start-time">Assignment Start time</label>
+					<input type="time" class="form-control <?php if(!empty($start_time_error)) echo 'is-invalid'?>" id="assign-start-time" name="start-time" value="00:00" required>
 					<div class="invalid-feedback">
-						Please select the assignment deadline.
+						<?php echo $start_time_error; ?> 
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<div class="form-group">
+					<label for="assign-end-date">Assignment End date</label>
+					<input type="date" class="form-control <?php if(!empty($end_date_error)) echo 'is-invalid'?>" name="end-date" id="assign-end-date" required>
+					<div class="invalid-feedback">
+						<?php echo $end_date_error; ?> 
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="assign-end-time">Assignment End time</label>
+					<input type="time" class="form-control <?php if(!empty($end_time_error)) echo 'is-invalid'?>" id="assign-end-time" name="end-time" value="00:00" required>
+					<div class="invalid-feedback">
+						<?php echo $end_time_error; ?> 
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary" name="create_assign">Submit</button>
 			</form>
 		</div>
 	</div>
 	
-	<!-- Boostrap JS -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-	
 	<script src="js/create_assignment.js"></script>
 </body>
 </html>

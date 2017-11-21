@@ -7,7 +7,7 @@
 	if (isset($_POST['create_course_form'])) {
 		include 'new_course.php';
 	}
-	echo $id_error,$name_error; 
+	
 ?>
 
 <!doctype html>
