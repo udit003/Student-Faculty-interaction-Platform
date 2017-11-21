@@ -33,26 +33,19 @@
 		</nav>
 		<div class="container w-50 text-center">
 			<h4 class="p-3">CREATE NEW COURSE</h4>
-			<form class="border border-muted p-5 text-left">
+			<form class="border border-muted p-5 text-left" method="POST" action="new_course.php">
 				<div class="form-group">
 					<label for="course-id">Course ID</label>
-					<input type="text" class="form-control is-valid" id="course-id" placeholder="Enter Course ID" required autofocus>
+					<input type="text" name="course_id" class="form-control is-valid" id="course-id" placeholder="Enter Course ID" required autofocus>
 					<div class="invalid-feedback">
 						Course ID already exists.
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="course-name">Course Name</label>
-					<input type="text" class="form-control is-invalid" id="course-name" placeholder="Enter Course Name" required>
+					<input type="text" name="course_name" class="form-control is-invalid" id="course-name" placeholder="Enter Course Name" required>
 					<div class="invalid-feedback">
 						Please provide a valid course name.
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="course-end-date">Course End date</label>
-					<input type="date" class="form-control is-invalid" id="course-end-date" required>
-					<div class="invalid-feedback">
-						Please select the course end date.
 					</div>
 				</div>
 				<button type="submit" class="btn btn-primary">Submit</button>
