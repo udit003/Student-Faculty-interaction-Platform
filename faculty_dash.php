@@ -100,21 +100,21 @@
 									<tr data-course-id="CSPC23">
 										<th scope="row">1</th>
 										<td>CSPC23</td>
-										<td>Internetworking Protocols <span class="badge badge-pill badge-primary ml-2">2</span></td>
+										<td>Internetworking Protocols <span class="badge badge-pill badge-primary ml-2">2</span> <button class="btn btn-outline-primary">Leave <i class="fa fa-sign-out"></i></button></td>
 										<td>28-10-2017</td>
 										<td>28-12-2017</td>
 									</tr>
 									<tr data-course-id="CSPC24">
 										<th scope="row">2</th>
 										<td>CSPC24</td>
-										<td>Database Management System <span class="badge badge-pill badge-primary ml-2">2</span></td>
+										<td>Database Management System <span class="badge badge-pill badge-primary ml-2">2</span> <button class="btn btn-outline-primary">Leave <i class="fa fa-sign-out"></i></button></td>
 										<td>28-10-2017</td>
 										<td>28-12-2017</td>
 									</tr>
 									<tr data-course-id="CSPC25">
 										<th scope="row">3</th>
 										<td>CSPC25</td>
-										<td>Computer Architecture <span class="badge badge-pill badge-primary ml-2">2</span></td>
+										<td>Computer Architecture <span class="badge badge-pill badge-primary ml-2">2</span> <button class="btn btn-outline-primary">Leave <i class="fa fa-sign-out"></i></button></td>
 										<td>28-10-2017</td>
 										<td>28-12-2017</td>
 									</tr>
@@ -162,9 +162,22 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal fade bd-example-modal-lg" id="confirm-leave-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header justify-content-center">
+					<h5>Do you want to leave the course: <span class="confirm-leave-text"></span></h5>
+				</div>
+				<div class="modal-footer justify-content-center">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+					<button type="button" id="confirm-leave" class="btn btn-primary">Proceed</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	
 	<!-- Bootstrap -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 	<!-- DataTable -->
@@ -176,9 +189,46 @@
 			$('#join-course-table').DataTable();
 			$('#ongoing-course-table').DataTable();
 			$('#past-course-table').DataTable();
+			let leave_course = "";
 
-			$("tr").on("click", function() {
-				window.location.href = `faculty_assignment.html?course=${$(this).data().courseId}`;
+			$(document).on("click", "#ongoing-course-table tr, #past-course-table tr", function() {
+				window.location.href = `student_assignment.php?course=${$(this).data().courseId}`;
+			});
+
+			$("#join-course-table tr").on("click", function(e) {
+				let course_id = $(this).data().courseId;
+				let course_name = $(this).find("td:eq(1)").html();
+				if(course_name) {
+					course_name = course_name.substring(0, course_name.indexOf("<span"));
+					leave_course = course_name;
+					$(".confirm-join-text").html(course_name);
+					$('#confirm-join-modal').modal("show");
+				}
+				switch(e.target.nodeName) {
+					case "BUTTON":
+						$(".confirm-leave-text").text(course_name);
+						$('#confirm-leave-modal').modal("show");
+						break;
+					case "TD":
+						window.location.href = `faculty_assignment.php?course=${course_id}`;
+						break;
+				}
+			});
+			$("#confirm-leave").click(function() {
+				if(leave_course) {
+					$('#confirm-leave-modal').modal("hide");
+					console.log(leave_course);
+					$.ajax({
+						url: "#",
+						method: "POST",
+						data: {
+							courseId: leave_course
+						},
+						success: function() {
+							location.reload();
+						}
+					});
+				}
 			});
 		});
 	</script>

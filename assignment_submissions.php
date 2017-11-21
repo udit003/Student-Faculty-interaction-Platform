@@ -33,8 +33,8 @@
 		<!-- BREADCRUMBS -->
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_dash.html">COURSES</a></li>
-				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_assignment.html?course=backend-course">ASSIGNMENTS</a></li>
+				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_dash.php">COURSES</a></li>
+				<li class="breadcrumb-item active" aria-current="page"><a href="faculty_assignment.php?course=backend-course">ASSIGNMENTS</a></li>
 				<li class="breadcrumb-item active" aria-current="page">SUBMISSIONS</li>
 			</ol>
 		</nav>
@@ -125,7 +125,7 @@
 			let assignId = "backend-assignId";
 			$("tr").click(function() {
 				let studentId = $(this).data().studentId;
-				window.location.href = `check_assignment.html?course=${courseId}&assign=${assignId}&student=${studentId}`;
+				window.location.href = `check_assignment.php?course=${courseId}&assign=${assignId}&student=${studentId}`;
 			});
 		});
 	</script>

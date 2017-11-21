@@ -161,45 +161,11 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal fade bd-example-modal-lg" id="confirm-join-modal" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header justify-content-center">
-					<h5>Request to join <span class="confirm-join-text"></span></h5>
-				</div>
-				<div class="modal-footer justify-content-center">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-					<button type="button" id="confirm-join" class="btn btn-primary">Proceed</button>
-				</div>
-			</div>
-		</div>
-	</div>
 	
-	<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-sm">
-			<div class="modal-content">
-				<h5>Successfully requested to join <span class="confirm-join-text"></span></h5>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-			</div>
-		</div>
-	</div>
-	<div class="modal fade bd-example-modal-lg" id="confirm-join-response-modal" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header justify-content-center">
-					<h5>Successfully sent request to join <span class="confirm-join-text"></span></h5>
-				</div>
-				<div class="modal-footer justify-content-center">
-					<button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-				</div>
-			</div>
-		</div>
-	</div>
 	
 	<!-- Bootstrap -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src=""></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 	<!-- DataTable -->
@@ -226,7 +192,7 @@
 				$("#confirm-join-response-modal").modal("show");
 			});
 			$(document).on("click", "#ongoing-course-table tr, #past-course-table tr", function() {
-				window.location.href = `student_assignment.html?course=${$(this).data().courseId}`;
+				window.location.href = `student_assignment.php?course=${$(this).data().courseId}`;
 			});
 		</script>
 	</body>

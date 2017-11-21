@@ -33,7 +33,7 @@
 		<!-- BREADCRUMBS -->
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item" aria-current="page"><a href="faculty_dash.html">COURSES</a></li>
+				<li class="breadcrumb-item" aria-current="page"><a href="faculty_dash.php">COURSES</a></li>
 				<li class="breadcrumb-item active" aria-current="page">ASSIGNMENTS</li>
 			</ol>
 		</nav>
@@ -49,7 +49,7 @@
 				<div class="col-10">
 					<div class="tab-content" id="v-pills-tabContent">
 						<div class="tab-pane fade show active" id="v-pills-ongoing-assign" role="tabpanel" aria-labelledby="v-pills-ongoing-assign">
-							<a href="create_assignment.html" id="btn-create-assignment" class="btn btn-outline-primary">CREATE NEW ASSIGNMENT</a>
+							<a href="create_assignment.php" id="btn-create-assignment" class="btn btn-outline-primary">CREATE NEW ASSIGNMENT</a>
 							<!-- Ongoing Assignment Table -->
 							<table id="ongoing-assign-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
 								<caption>List of Ongoing Assignments</caption>
@@ -128,10 +128,10 @@
 				let assignment_id = $(this).data().assignmentId;
 				switch(e.target.nodeName) {
 					case "BUTTON":
-						window.location.href = `update_assignment.html?course=${course_id}&assignment=${assignment_id}`;
+						window.location.href = `update_assignment.php?course=${course_id}&assignment=${assignment_id}`;
 						break;
 					case "TD":
-						window.location.href = `assignment_submissions.html?course=${course_id}&assignment=${assignment_id}`;
+						window.location.href = `assignment_submissions.php?course=${course_id}&assignment=${assignment_id}`;
 						break;
 				}
 			});

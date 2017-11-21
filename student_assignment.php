@@ -33,7 +33,7 @@
 		<!-- BREADCRUMBS -->
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item" aria-current="page"><a href="student_dash.html">COURSES</a></li>
+				<li class="breadcrumb-item" aria-current="page"><a href="student_dash.php">COURSES</a></li>
 				<li class="breadcrumb-item active" aria-current="page">ASSIGNMENTS</li>
 			</ol>
 		</nav>
@@ -125,7 +125,7 @@
 
 			$("tr").on("click", function(e) {
 				let assignment_id = $(this).data().assignmentId;
-				window.location.href = `answer.html?course=${course_id}&assign=${assignment_id}`;
+				window.location.href = `answer.php?course=${course_id}&assign=${assignment_id}`;
 			});
 		});
 	</script>
