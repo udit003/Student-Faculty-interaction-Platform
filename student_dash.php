@@ -1,3 +1,7 @@
+<?php 
+include 'check_student.php';
+include 'config.php';
+?>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -54,27 +58,12 @@
 									<th scope="col">Course ID</th>
 									<th scope="col">Course Name</th>
 									<th scope="col">Started on</th>
-									<th scope="col">Ended on</th>
 								</thead>
 								<tbody>
 									<tr data-course-id="CSPC23">
 										<th scope="row">1</th>
 										<td>CSPC23</td>
 										<td>Internetworking Protocols <span class="badge badge-pill badge-primary ml-2">2</span></td>
-										<td>28-10-2017</td>
-										<td>28-12-2017</td>
-									</tr>
-									<tr data-course-id="CSPC24">
-										<th scope="row">2</th>
-										<td>CSPC24</td>
-										<td>Database Management System <span class="badge badge-pill badge-primary ml-2">2</span></td>
-										<td>28-10-2017</td>
-										<td>28-12-2017</td>
-									</tr>
-									<tr data-course-id="CSPC25">
-										<th scope="row">3</th>
-										<td>CSPC25</td>
-										<td>Computer Architecture <span class="badge badge-pill badge-primary ml-2">2</span></td>
 										<td>28-10-2017</td>
 										<td>28-12-2017</td>
 									</tr>
@@ -90,31 +79,30 @@
 									<th scope="col">Course ID</th>
 									<th scope="col">Course Name</th>
 									<th scope="col">Started on</th>
-									<th scope="col">Ended on</th>
 								</thead>
-								<tbody>
-									<tr data-course-id="CSPC23">
-										<th scope="row">1</th>
-										<td>CSPC23</td>
-										<td>Internetworking Protocols <span class="badge badge-pill badge-primary ml-2">2</span></td>
-										<td>28-10-2017</td>
-										<td>28-12-2017</td>
-									</tr>
-									<tr data-course-id="CSPC24">
-										<th scope="row">2</th>
-										<td>CSPC24</td>
-										<td>Database Management System <span class="badge badge-pill badge-primary ml-2">2</span></td>
-										<td>28-10-2017</td>
-										<td>28-12-2017</td>
-									</tr>
-									<tr data-course-id="CSPC25">
-										<th scope="row">3</th>
-										<td>CSPC25</td>
-										<td>Computer Architecture <span class="badge badge-pill badge-primary ml-2">2</span></td>
-										<td>28-10-2017</td>
-										<td>28-12-2017</td>
-									</tr>
-								</tbody>
+								 <?php 
+            $ongoing_courses = $conn->query("select user_courses.course_id ,course_name,start_date from user_courses,courses where user_id=".$_SESSION['user_id']." AND approval_status='approved' AND user_courses.course_id = courses.course_id");
+            $row_count = 1;
+            if(mysqli_num_rows($ongoing_courses)) {
+               $ongoing_c_list = '<tbody>';
+               while($rs=mysqli_fetch_array($ongoing_courses)){
+                  $ongoing_c_list.='<tr data-course-id="'.
+                  $rs['course_id'].
+                  '"><th scope="row">'.
+                  $row_count++.
+                  '</th><td>'.
+                  $rs['course_id'].
+                  '</th><td>'.
+                  $rs['course_name'].
+                  '<span class="badge badge-pill badge-primary ml-2"></span></td><td>'.
+                  $rs['start_date'].
+                  '</td></tr>';
+              }
+               $ongoing_c_list.='</tbody>';
+            echo $ongoing_c_list;
+            }
+           
+          ?> 
 							</table>
 						</div>
 						<div class="tab-pane fade" id="v-pills-past-courses" role="tabpanel" aria-labelledby="v-pills-past-courses">
@@ -128,29 +116,31 @@
 									<th scope="col">Started on</th>
 									<th scope="col">Ended on</th>
 								</thead>
-								<tbody>
-									<tr data-course-id="CSPC23">
-										<th scope="row">1</th>
-										<td>CSPC23</td>
-										<td>Internetworking Protocols <span class="badge badge-pill badge-primary ml-2">2</span></td>
-										<td>28-10-2017</td>
-										<td>28-12-2017</td>
-									</tr>
-									<tr data-course-id="CSPC24">
-										<th scope="row">2</th>
-										<td>CSPC24</td>
-										<td>Database Management System <span class="badge badge-pill badge-primary ml-2">2</span></td>
-										<td>28-10-2017</td>
-										<td>28-12-2017</td>
-									</tr>
-									<tr data-course-id="CSPC25">
-										<th scope="row">3</th>
-										<td>CSPC25</td>
-										<td>Computer Architecture <span class="badge badge-pill badge-primary ml-2">2</span></td>
-										<td>28-10-2017</td>
-										<td>28-12-2017</td>
-									</tr>
-								</tbody>
+									 <?php 
+            $past_courses = $conn->query("select user_courses.course_id ,course_name,start_date,end_date from user_courses,courses where user_id=".$_SESSION['user_id']." AND approval_status='completed' AND user_courses.course_id = courses.course_id");
+            $row_count = 1;
+            if(mysqli_num_rows($past_courses)) {
+               $past_c_list = '<tbody>';
+               while($rs=mysqli_fetch_array($past_courses)){
+                  $past_c_list.='<tr data-course-id="'.
+                  $rs['course_id'].
+                  '"><th scope="row">'.
+                  $row_count++.
+                  '</th><td>'.
+                  $rs['course_id'].
+                  '</th><td>'.
+                  $rs['course_name'].
+                  '<span class="badge badge-pill badge-primary ml-2"></span></td><td>'.
+                  $rs['start_date'].
+                  '</td><td>'.
+                  $rs['end_date'].
+                  '</tr>';
+              }
+               $past_c_list.='</tbody>';
+            echo $past_c_list;
+            }
+           
+          ?> 
 							</table>
 						</div>
 					</div>
