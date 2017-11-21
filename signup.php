@@ -97,11 +97,11 @@
 
 
     if($user_type=='student'){
-       header("Location: Student-Dashboard.php");
+       header("Location: student_dash.html");
       die();
     }
     else {
-      header("Location: Faculty-Dashboard.php");
+      header("Location: faculty_dash.html");
       die();
     }
   } else {

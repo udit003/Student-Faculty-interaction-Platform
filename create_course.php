@@ -1,3 +1,15 @@
+<?php
+	include 'check_faculty.php';
+	$id_error ='';
+	$name_error = '';
+	$course_id = '';
+	$course_name = '';
+	if (isset($_POST['create_course_form'])) {
+		include 'new_course.php';
+	}
+	echo $id_error,$name_error; 
+?>
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -33,22 +45,22 @@
 		</nav>
 		<div class="container w-50 text-center">
 			<h4 class="p-3">CREATE NEW COURSE</h4>
-			<form class="border border-muted p-5 text-left" method="POST" action="new_course.php">
+			<form class="border border-muted p-5 text-left" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" >
 				<div class="form-group">
 					<label for="course-id">Course ID</label>
-					<input type="text" name="course_id" class="form-control is-valid" id="course-id" placeholder="Enter Course ID" required autofocus>
+					<input type="text" class="form-control <?php if(!empty($id_error)) echo 'is-invalid'?>" id="course-id" name ="course_id" placeholder="Enter Course ID" value = "<?php echo $course_id ?>" required autofocus>
 					<div class="invalid-feedback">
-						Course ID already exists.
+						<?php echo $id_error; ?> 
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="course-name">Course Name</label>
-					<input type="text" name="course_name" class="form-control is-invalid" id="course-name" placeholder="Enter Course Name" required>
+					<input type="text" class="form-control <?php if(!empty($name_error)) echo 'is-invalid'?>" id="course-name" name="course_name" value = "<?php echo $course_name ?>" placeholder="Enter Course Name" required>
 					<div class="invalid-feedback">
-						Please provide a valid course name.
+						<?php echo $name_error; ?>
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" class="btn btn-primary" name="create_course_form" value="YES">Submit</button>
 			</form>
 		</div>
 	</div>
@@ -56,10 +68,5 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-	<script>
-		let today = (new Date()).toISOString().substr(0, 10);
-		document.getElementById("course-end-date").value = today;
-		document.getElementById("course-end-date").min = today;
-	</script>
 </body>
 </html>
